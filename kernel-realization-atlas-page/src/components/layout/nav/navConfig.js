@@ -6,22 +6,34 @@ export const NAV_ITEMS = [
     panel: "atlas",
   },
   {
+    key: "hardware",
+    label: "Hardware",
+    href: "/hardware-evidence",
+    panel: "hardware",
+  },
+  {
+    key: "semantics",
+    label: "Semantics",
+    href: "/properties-new",
+    panel: "semantics",
+  },
+  {
     key: "operators",
     label: "Operators",
     href: "/operators-new",
     panel: "operators",
   },
   {
-    key: "properties",
-    label: "Properties",
-    href: "/properties-new",
-    panel: "properties",
-  },
-  {
     key: "analysis",
-    label: "Analysis",
+    label: "Labs",
     href: "/analysis-new",
     panel: "analysis",
+  },
+  {
+    key: "memory",
+    label: "Memory",
+    href: "/memory-new",
+    panel: "memory",
   },
 ];
 
@@ -33,180 +45,297 @@ export const MENU_PANELS = {
         title: "Start Here",
         links: [
           {
-            label: "Atlas Overview",
+            label: "Atlas Home",
             href: "/atlas-new",
-            desc: "Project map and top-level entry points",
+            desc: "Top-level entry point for the full atlas",
           },
           {
-            label: "Memory Methods",
-            href: "/memory-new",
-            desc: "Memory-oriented optimization patterns",
+            label: "Atlas Overview",
+            href: "/atlas-overview-new",
+            desc: "How the atlas is structured and how to read it",
           },
         ],
       },
       {
-        title: "Guides",
+        title: "Core Layers",
         links: [
           {
-            label: "Properties",
-            href: "/properties-new",
-            desc: "Optimization-enabling properties",
+            label: "Hardware Evidence",
+            href: "/hardware-evidence",
+            desc: "Measured hardware behavior and execution primitives",
           },
           {
-            label: "Analysis",
-            href: "/analysis-new",
-            desc: "Execution comparison and deep dive",
+            label: "Optimization Semantics",
+            href: "/properties-new",
+            desc: "Transformation-enabling properties and meaning structure",
+          },
+          {
+            label: "Invariants",
+            href: "/invariants",
+            desc: "What must remain unchanged across transformations",
           },
         ],
       },
     ],
     featured: {
-      title: "Atlas Home",
-      desc: "Explore operators, invariants, properties, and realization paths from a single top-level map.",
-      href: "/atlas-new",
+      title: "Atlas Overview",
+      desc: "Read the atlas from measured hardware evidence to operator realizations and realization labs.",
+      href: "/atlas-overview-new",
     },
   },
 
-  operators: {
-    title: "Operators",
+  hardware: {
+    title: "Hardware Evidence",
     sections: [
       {
-        title: "Core Operators",
+        title: "Evidence Layers",
         links: [
           {
-            label: "GEMM",
-            href: "/operators-new#gemm",
-            desc: "Tiling, scheduling, epilogue fusion",
+            label: "Hardware Evidence",
+            href: "/hardware-evidence",
+            desc: "Measured GPU behavior and execution evidence",
           },
           {
-            label: "Softmax",
-            href: "/operators-new#softmax",
-            desc: "Reduction stability and realization choices",
+            label: "Hardware Characterization",
+            href: "/hardware-evidence#characterization",
+            desc: "Memory hierarchy, access behavior, scheduling traits",
           },
           {
-            label: "LayerNorm",
-            href: "/operators-new#layernorm",
-            desc: "Normalization-oriented execution",
+            label: "Execution Primitive Lab",
+            href: "/hardware-evidence#primitives",
+            desc: "Reduction, streaming, rematerialization, tile staging",
           },
         ],
       },
       {
-        title: "Update / Elementwise",
+        title: "Connect Forward",
         links: [
           {
-            label: "ReLU",
-            href: "/operators-new#relu",
-            desc: "Domain pruning and cheap realization",
+            label: "Optimization Semantics",
+            href: "/properties-new",
+            desc: "Move from evidence to transformation possibilities",
           },
           {
-            label: "BatchNorm",
-            href: "/operators-new#batchnorm",
-            desc: "Training/inference distinctions",
-          },
-          {
-            label: "Adam Step",
-            href: "/operators-new#adamstep",
-            desc: "Optimizer update realization",
+            label: "Realization Labs",
+            href: "/analysis-new",
+            desc: "See how measured evidence shapes realized variants",
           },
         ],
       },
     ],
     featured: {
-      title: "Operator Catalog",
-      desc: "Browse operator families and jump into deep dives or realization comparisons.",
-      href: "/operators-new",
+      title: "Hardware Evidence",
+      desc: "Start from measured GPU response rather than abstract assumptions.",
+      href: "/hardware-evidence",
     },
   },
 
-  properties: {
-    title: "Properties & Invariants",
+  semantics: {
+    title: "Optimization Semantics",
     sections: [
       {
         title: "Properties",
         links: [
           {
-            label: "Order Rewritable",
-            href: "/properties-new#order-rewritable",
-            desc: "Order changes allowed",
+            label: "Properties",
+            href: "/properties-new",
+            desc: "Transformation-enabling properties of computations",
           },
           {
-            label: "Tile Composable",
-            href: "/properties-new#tile-composable",
-            desc: "Partitionable into tiles",
+            label: "Reordering",
+            href: "/properties-new#reordering-properties",
+            desc: "Where computation order can change",
           },
           {
-            label: "Rematerializable",
-            href: "/properties-new#rematerializable",
-            desc: "Recompute instead of store",
+            label: "Streaming",
+            href: "/properties-new#streaming-properties",
+            desc: "Where full materialization can be avoided",
+          },
+          {
+            label: "Fusion / Residency",
+            href: "/properties-new#fusion-properties",
+            desc: "Where intermediate traffic can be reduced",
           },
         ],
       },
       {
-        title: "Invariants",
+        title: "Constraints",
         links: [
           {
-            label: "Reduction Equivalence",
-            href: "/properties-new#reduction-equivalence",
-            desc: "Equivalent reduced result",
+            label: "Invariants",
+            href: "/invariants",
+            desc: "Semantic, structural, and numerical conditions",
           },
           {
-            label: "Normalization Preservation",
-            href: "/properties-new#normalization-preservation",
-            desc: "Statistical consistency",
+            label: "Semantic Invariants",
+            href: "/invariants#semantic-invariants",
+            desc: "Meaning that must remain unchanged",
           },
           {
-            label: "Bounded Numeric Drift",
-            href: "/properties-new#bounded-numeric-drift",
-            desc: "Controlled numerical deviation",
+            label: "Numerical Invariants",
+            href: "/invariants#numerical-invariants",
+            desc: "Boundaries on numeric drift and stability",
           },
         ],
       },
     ],
     featured: {
-      title: "Constraint System",
-      desc: "See what transformations are allowed and what semantics must remain unchanged.",
+      title: "Semantics & Constraints",
+      desc: "See what transformations become possible and what boundaries they must respect.",
       href: "/properties-new",
     },
   },
 
+  operators: {
+    title: "Operator Realizations",
+    sections: [
+      {
+        title: "Operator Families",
+        links: [
+          {
+            label: "Operator Realizations",
+            href: "/operators-new",
+            desc: "Browse operators as realization spaces, not fixed kernels",
+          },
+          {
+            label: "Dense Compute",
+            href: "/operators-new#dense-compute-operators",
+            desc: "GEMM-like operators with strong tiling and residency structure",
+          },
+          {
+            label: "Reduction-Centric",
+            href: "/operators-new#reduction-centric-operators",
+            desc: "Operators shaped by reduction topology and accumulation behavior",
+          },
+          {
+            label: "Attention-Like",
+            href: "/operators-new#attention-like-operators",
+            desc: "Streaming and weighted-reduction oriented realizations",
+          },
+        ],
+      },
+      {
+        title: "Connect Forward",
+        links: [
+          {
+            label: "Realization Labs",
+            href: "/analysis-new",
+            desc: "Compare how operator variants behave in practice",
+          },
+          {
+            label: "Memory Lens",
+            href: "/memory-new",
+            desc: "Re-read operators through traffic, reuse, and residency",
+          },
+        ],
+      },
+    ],
+    featured: {
+      title: "Operator Realizations",
+      desc: "Interpret each operator through properties, invariants, and possible execution paths.",
+      href: "/operators-new",
+    },
+  },
+
   analysis: {
-    title: "Analysis",
+    title: "Realization Labs",
     sections: [
       {
         title: "Explore",
         links: [
           {
-            label: "Realization Comparison",
+            label: "Realization Labs",
             href: "/analysis-new",
-            desc: "Compare execution variants",
+            desc: "Compare execution variants and their measured outcomes",
           },
           {
-            label: "Kernel Deep Dive",
-            href: "/analysis-new#deepdive",
-            desc: "Detailed kernel-level reading",
+            label: "Variant Comparison",
+            href: "/analysis-new#variant-comparison",
+            desc: "Read differences across realization paths",
+          },
+          {
+            label: "Metric Interpretation",
+            href: "/analysis-new#metric-interpretation",
+            desc: "Understand what measured numbers actually mean",
           },
         ],
       },
       {
-        title: "Evidence",
+        title: "Read Results",
         links: [
           {
-            label: "Metrics",
-            href: "/analysis-new#metrics",
-            desc: "Measured behavior and execution signature",
+            label: "Execution Signature",
+            href: "/analysis-new#execution-signature",
+            desc: "Trace and profile-level evidence of execution behavior",
           },
           {
-            label: "Configs",
-            href: "/analysis-new#configs",
-            desc: "Variant-specific settings",
+            label: "Fusion Cases",
+            href: "/analysis-new#fusion-case-studies",
+            desc: "See how composite realization paths form",
+          },
+          {
+            label: "Validation and Limits",
+            href: "/analysis-new#validation-and-limits",
+            desc: "Correctness, stability, and boundary conditions",
           },
         ],
       },
     ],
     featured: {
-      title: "Analysis Workspace",
-      desc: "Move from high-level property reasoning to measured execution results.",
+      title: "Realization Labs",
+      desc: "Turn properties and operator reasoning into measured implementation comparisons.",
       href: "/analysis-new",
+    },
+  },
+
+  memory: {
+    title: "Memory Lens",
+    sections: [
+      {
+        title: "Memory as Lens",
+        links: [
+          {
+            label: "Memory Lens",
+            href: "/memory-new",
+            desc: "A cross-cutting memory-centric view across the atlas",
+          },
+          {
+            label: "Streaming",
+            href: "/memory-new#streaming",
+            desc: "Avoid full materialization through running-state updates",
+          },
+          {
+            label: "Rematerialization",
+            href: "/memory-new#rematerialization",
+            desc: "Trade recompute for reduced traffic and storage",
+          },
+        ],
+      },
+      {
+        title: "Reuse & Traffic",
+        links: [
+          {
+            label: "Residency",
+            href: "/memory-new#residency",
+            desc: "Keep data on-chip for local reuse",
+          },
+          {
+            label: "Fusion",
+            href: "/memory-new#fusion",
+            desc: "Reduce intermediate reads and writes",
+          },
+          {
+            label: "Traffic Elimination",
+            href: "/memory-new#traffic-elimination",
+            desc: "Remove unnecessary memory movement",
+          },
+        ],
+      },
+    ],
+    featured: {
+      title: "Memory Lens",
+      desc: "Read hardware evidence, semantics, operators, and labs through memory movement and reuse.",
+      href: "/memory-new",
     },
   },
 };

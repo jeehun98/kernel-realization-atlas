@@ -1,13 +1,14 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-// 새 셸 + 새 페이지들
 import PageShell from "./components/layout/PageShell";
+import AnalysisNewPage from "./pages/AnalysisNewPage";
 import AtlasHomePage from "./pages/AtlasHomePage";
 import AtlasOverviewNewPage from "./pages/AtlasOverviewNewPage";
+import HardwareEvidencePage from "./pages/HardwareEvidencePage";
+import InvariantsPage from "./pages/InvariantsPage";
+import MemoryNewPage from "./pages/MemoryNewPage";
 import OperatorsNewPage from "./pages/OperatorsNewPage";
 import PropertiesNewPage from "./pages/PropertiesNewPage";
-import AnalysisNewPage from "./pages/AnalysisNewPage";
-import MemoryNewPage from "./pages/MemoryNewPage";
 
 export default function App() {
   return (
@@ -34,10 +35,10 @@ export default function App() {
         />
 
         <Route
-          path="/operators-new"
+          path="/hardware-evidence"
           element={
-            <PageShell fullWidth>
-              <OperatorsNewPage />
+            <PageShell>
+              <HardwareEvidencePage />
             </PageShell>
           }
         />
@@ -47,6 +48,24 @@ export default function App() {
           element={
             <PageShell>
               <PropertiesNewPage />
+            </PageShell>
+          }
+        />
+
+        <Route
+          path="/invariants"
+          element={
+            <PageShell>
+              <InvariantsPage />
+            </PageShell>
+          }
+        />
+
+        <Route
+          path="/operators-new"
+          element={
+            <PageShell fullWidth>
+              <OperatorsNewPage />
             </PageShell>
           }
         />
@@ -68,6 +87,8 @@ export default function App() {
             </PageShell>
           }
         />
+
+        <Route path="*" element={<Navigate to="/atlas-new" replace />} />
       </Routes>
     </BrowserRouter>
   );
